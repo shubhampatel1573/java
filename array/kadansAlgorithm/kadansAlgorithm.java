@@ -4,12 +4,22 @@ public class kadansAlgorithm {
         int cs = 0;
         int ms = Integer.MIN_VALUE;
 
-        for(int i = 0; i<numbers.length; i++){
-            cs = cs + numbers[i] < 0 ? 0 :  cs + numbers[i];
-            if (cs > ms) {
-                ms = cs;
+        // This is also right
+        // for(int i = 0; i<numbers.length; i++){
+        //     cs = cs + numbers[i] < 0 ? 0 :  cs + numbers[i];
+        //     if (cs > ms) {
+        //         ms = cs;
+        //     }
+        // }
+
+        for(int i = 0; i< numbers.length; i++){
+            cs = cs + numbers[i];
+            if(cs < 0){
+                cs = 0;
             }
+            ms = Math.max(ms, cs);
         }
+
         System.out.println("max sum : " + ms);
     }
     public static void main(String args[]){
